@@ -26,21 +26,19 @@ jobs:
           **/node_modules/**
           **/vendor/**
           **/manish/**
-    # - name: Update files on Hosting Server
-    #   run: |
-    #     rsync -r -e "ssh -o StrictHostKeyChecking=no -i ${{ secrets.DEPLOY_KEY }}" \
-    #     --exclude '.git*' --exclude 'vendor/' --exclude 'node_modules/' \
-    #     --delete-excluded ./ u199268921@217.21.77.139:/home/u199268921/public_html/laravel
 
-    # - name: Set up PHP
-    #   uses: shivammathur/setup-php@v2
-    #   with:
-    #     php-version: '8.0'
-    #     extensions: mbstring, zip, pdo, xml, curl, json, openssl
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.0'
+        extensions: mbstring, zip, pdo, xml, curl, json, openssl
 
-    # - name: Install Composer Dependencies
-    #   run: composer install --no-interaction --prefer-dist
+    - name: Install Composer Dependencies
+      run: composer install --no-interaction --prefer-dist
 
+    - name: Deploy to Server
+      run: |
+        ssh -i ${{ secrets.DEPLOY_KEY }} ${{ secrets.DEPLOY_USERNAME }}@${{ secrets.DEPLOY_IP }} 'cd /home/u199268921/public_html/laravel  && composer install --no-interaction --no-ansi --no-progress --optimize-autoloader'
     # - name: Set up Environment
     #   run: cp .env.example .env
 
