@@ -20,7 +20,7 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         remote-dir: /home/u199268921/public_html/laravel 
-        exclude: ".git/*,vendor/*,node_modules/*"
+        exclude: ".git/*,manish/*,vendor/*,node_modules/*"
     # - name: Update files on Hosting Server
     #   run: |
     #     rsync -r -e "ssh -o StrictHostKeyChecking=no -i ${{ secrets.DEPLOY_KEY }}" \
