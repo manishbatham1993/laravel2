@@ -19,8 +19,7 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        remote-dir: /home/u199268921/public_html/laravel
-        local-dir: .
+        remote-dir: /home/u199268921/public_html/laravel 
         exclude: ".git/*,vendor/*,node_modules/*"
     # - name: Update files on Hosting Server
     #   run: |
