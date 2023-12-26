@@ -45,8 +45,8 @@ jobs:
         port: ${{ secrets.SSH_PORT }} 
         script: |
                 whoami
-                cd /public_html/laravel
-                composer install
+                cd /home/u199268921/public_html/laravel
+                composer2 install
 
     # - name: Deploy to Server
     #   run: |
