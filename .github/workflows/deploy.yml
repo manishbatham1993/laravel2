@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Deploy to FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -20,7 +20,12 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         remote-dir: /home/u199268921/public_html/laravel 
-        exclude: ".git/*,manish/*,vendor/*,node_modules/*"
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          **/vendor/**
+          **/manish/**
     # - name: Update files on Hosting Server
     #   run: |
     #     rsync -r -e "ssh -o StrictHostKeyChecking=no -i ${{ secrets.DEPLOY_KEY }}" \
