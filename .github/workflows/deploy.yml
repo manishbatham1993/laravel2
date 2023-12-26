@@ -46,7 +46,7 @@ jobs:
         script: |
                 whoami
                 cd /home/u199268921/public_html/laravel
-                composer2 install
+                composer2 install --no-interaction --no-ansi --no-progress --optimize-autoloader
 
     # - name: Deploy to Server
     #   run: |
