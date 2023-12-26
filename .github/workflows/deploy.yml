@@ -36,9 +36,18 @@ jobs:
     # - name: Install Composer Dependencies
     #   run: composer install --no-interaction --prefer-dist
 
-    - name: Deploy to Server
-      run: |
-        ssh -i ${{ secrets.DEPLOY_KEY }} ${{ secrets.DEPLOY_USERNAME }}@${{ secrets.DEPLOY_IP }} 'cd /home/u199268921/public_html/laravel  && composer update && composer install --no-interaction --no-ansi --no-progress --optimize-autoloader'
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@v1.0.1
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.SSH_UNAME }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        port: ${{ secrets.SSH_PORT }}
+        script: whoami
+
+    # - name: Deploy to Server
+    #   run: |
+    #     ssh -i ${{ secrets.DEPLOY_KEY }} ${{ secrets.DEPLOY_USERNAME }}@${{ secrets.DEPLOY_IP }} 'cd /home/u199268921/public_html/laravel  && composer update && composer install --no-interaction --no-ansi --no-progress --optimize-autoloader'
     # - name: Set up Environment
     #   run: cp .env.example .env
 
