@@ -27,14 +27,14 @@ jobs:
           **/vendor/**
           **/manish/**
 
-    - name: Set up PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '8.0'
-        extensions: mbstring, zip, pdo, xml, curl, json, openssl
+    # - name: Set up PHP
+    #   uses: shivammathur/setup-php@v2
+    #   with:
+    #     php-version: '8.0'
+    #     extensions: mbstring, zip, pdo, xml, curl, json, openssl
 
-    - name: Install Composer Dependencies
-      run: composer install --no-interaction --prefer-dist
+    # - name: Install Composer Dependencies
+    #   run: composer install --no-interaction --prefer-dist
 
     - name: Deploy to Server
       run: |
