@@ -50,7 +50,7 @@ jobs:
                 php artisan migrate --database=mysql --force
                 php artisan migrate --database=mysql2 --force
 
-    # - name: Deploy to Server
+    # - name: Deploy to Server 
     #   run: |
     #     ssh -i ${{ secrets.DEPLOY_KEY }} ${{ secrets.DEPLOY_USERNAME }}@${{ secrets.DEPLOY_IP }} 'cd /home/u199268921/public_html/laravel  && composer update && composer install --no-interaction --no-ansi --no-progress --optimize-autoloader'
     # - name: Set up Environment
