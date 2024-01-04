@@ -49,7 +49,7 @@ jobs:
                 composer2 install --no-interaction --no-ansi --no-progress --optimize-autoloader
                 php artisan migrate --database=mysql --path=database/migrations/mysql
                 php artisan migrate --database=mysql2 --path=database/migrations/mysql2
-                php artisan optimize:clear 
+                php artisan optimize:clear  
 
     # - name: Deploy to Server 
     #   run: |
