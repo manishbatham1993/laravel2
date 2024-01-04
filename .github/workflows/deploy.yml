@@ -46,7 +46,7 @@ jobs:
         script: |
                 whoami
                 cd /home/u199268921/public_html/laravel
-                php composer.phar install --ignore-platform-reqs --no-scripts
+                php composer2.phar install --ignore-platform-reqs --no-scripts
                 php artisan migrate --database=mysql --path=database/migrations/mysql
                 php artisan migrate --database=mysql2 --path=database/migrations/mysql2
                 php artisan optimize:clear 
