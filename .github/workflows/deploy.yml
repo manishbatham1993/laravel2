@@ -47,8 +47,8 @@ jobs:
                 whoami
                 cd /home/u199268921/public_html/laravel
                 composer2 install --no-interaction --no-ansi --no-progress --optimize-autoloader
-                php artisan migrate --database=mysql --path=mysql
-                php artisan migrate --database=mysql2 --path=mysql2
+                php artisan migrate --database=mysql --path=database/migrations/mysql
+                php artisan migrate --database=mysql --path=database/migrations/mysql2
                 php artisan optimize:clear
 
     # - name: Deploy to Server 
