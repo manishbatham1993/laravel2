@@ -44,13 +44,17 @@ jobs:
         password: ${{ secrets.SSH_PASSWORD }}
         port: ${{ secrets.SSH_PORT }} 
         script: |
+                echo "checking whoami"
                 whoami
-                echo "test1"
+                echo "changing dir"
                 cd /home/u199268921/public_html/laravel
-                echo "test2"
+                echo "composer install"
                 composer2 install --no-interaction --no-ansi --no-progress --optimize-autoloader
-                echo "test3"
+                echo "migration database1 starts"
                 php artisan migrate --database=mysql --path=database/migrations/mysql
+                echo "migration database1 ends"
+                echo "migration database2 starts"
                 php artisan migrate --database=mysql2 --path=database/migrations/mysql2
+                echo "migration database2 ends"
                 php artisan optimize:clear  
 ...
